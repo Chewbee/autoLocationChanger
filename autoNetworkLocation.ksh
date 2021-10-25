@@ -1,5 +1,5 @@
 #!/bin/ksh
-mkdir -p usr/local/var/log
+mkdir -p /usr/local/var/log
 exec &>/usr/local/var/log/autoNetworkLocation.log
 # get SSID
 SSID=`/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I | awk '/ SSID:/ {print $2}'`
