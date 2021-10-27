@@ -6,10 +6,10 @@ exec &>/usr/local/var/log/autoNetworkLocation.log
 # get SSID of the wifi connected 
 # get SSID
 SSID=`/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I | awk '/ SSID:/ {print $2}'`
-echo `date` "New SSID found: $SSID"
+#echo `date` "New SSID found: $SSID"
 #
 SSID=`networksetup -getairportnetwork en0` 
-print Connected to: ${SSID//Current Wi-Fi Network: ?(re)/} 
+#print Connected to: ${SSID//Current Wi-Fi Network: ?(re)/} 
 SSID=${SSID//Current Wi-Fi Network: ?(re)/} 
 
 # Switching
