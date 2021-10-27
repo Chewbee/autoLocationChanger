@@ -2,8 +2,8 @@
 mkdir -p /usr/local/var/log
 exec &>/usr/local/var/log/autoNetworkLocation.log
 # get SSID
-SSID=`/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I | awk '/ SSID:/ {print $2}'`
-echo `date` "New SSID found: $SSID"
+#SSID=`/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I | awk '/ SSID:/ {print $2}'`
+#echo `date` "New SSID found: $SSID"
 # get the wifi connected 
 SSID=`networksetup -getairportnetwork en0` 
 print Connected to: ${SSID//Current Wi-Fi Network: ?(re)/} 
@@ -31,26 +31,17 @@ if [ -z "$LOCATION" ]; then
 	REASON="Automatic Fallback"
 fi
 
-# case $LOCATION in
-#         $Location_Automatic )
-#                 # do stuff here you would do in Location_Automatic
-#                 osascript -e 'display notification "Network Location Changed to Automatic" with title "Network Location Changed"'
-#         ;;
-
-#         $Location_Home )
-#                 osascript -e 'display notification "Network Location Changed to Home" with title "Network Location Changed"'
-#         ;;
-# 				# ... add more here
-# esac
-
-
 # Checking the curretn wifi 
-if [[ "$SSID" != 'WiFiFirst' ]] ; then
+if [[ "$SSID" == 'iPhone' ]] ; then
     #Switch  the location
     #echo "Switching Location" 
-    osascript -e 'display notification "Network Location Changed to Work" with title "Network Location Changed"'
-    networksetup -switchtolocation First 
-else
-    echo "Already on the First Configuration" 
-    osascript -e 'display notification "Already on the First Configuration" with title "Network Location unchanged"'
+    osascript -e 'display notification "Network Location Changed to Automatic" with title "Network Location Changed"'
+    networksetup -switchtolocation Automatic  
+elif [[ "$SSID" == 'WiFiFirst' ]] ; then
+    # echo "Already on the First Configuration" 
+    osascript -e 'display notification "Switching to the First Configuration" with title "Network Location Changed"'
+	networksetup -switchtolocation First  
+else 
+	osascript -e 'display notification "Defaulting to the Automatic Configuration" with title "Network Location Changed"'
+	networksetup -switchtolocation Automatic  
 fi
