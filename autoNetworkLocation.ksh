@@ -1,5 +1,5 @@
 #!/bin/ksh
-mkdir -p /usr/local/var/log
+mkdir -p /usr/local/var/logautoNetworkLocation.log
 exec &>/usr/local/var/log/autoNetworkLocation.log
 # get SSID of the wifi connected 
 SSID=`networksetup -getairportnetwork en0` 
