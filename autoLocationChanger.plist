@@ -6,11 +6,14 @@
     <string>autoNetworkLocation</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/usr/local/bin/autoNetworkLocation</string>
+        <string>/Users/Georges.Henry.Portefait/bin/autoNetworkLocation</string>
     </array>
     <key>WatchPaths</key>
     <array>
         <string>/Library/Preferences/SystemConfiguration/com.apple.airport.preferences.plist</string>
+        <string>/Library/Preferences/SystemConfiguration/com.apple.wifi.message-tracer.plist</string>
     </array>
+    <key>RunAtLoad</key>
+    <true/>
 </dict>
 </plist>
