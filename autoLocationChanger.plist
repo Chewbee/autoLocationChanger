@@ -6,7 +6,7 @@
     <string>autoNetworkLocation</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/Georges.Henry.Portefait/bin/autoNetworkLocation</string>
+        <string>/Users/Georges.Henry.Portefait/bin/autoNetworkLocation.ksh</string>
     </array>
     <key>WatchPaths</key>
     <array>
